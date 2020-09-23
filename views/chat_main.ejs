@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h2> Chating Main Page</h2>
+    <p> 
+        <!-- 방만들기 -->
+        <p>
+            <h3> 방 만들기! </h3>
+            <form class="form-inline" action = "/mk_room" method = "post" >
+                <input type="text" name = room_name class="form-control" id="msgForm"> Room Name
+                <button type="submit" class="btn btn-primary"> Make Room! </button>
+            </form>
+        </p>
+    
+        <!-- 방 리스트 & 참여하기  -->
+        <p>
+            <% for(var i = 0; i < room_list.length ; i++){ %> 
+                <% var name = "/chat_main/" + i %>
+                <form class="form-inline" action = <%= name %>  > 
+                    room <%= i+1 %> : <%= room_list[i] %>
+                    <button type="submit" class="btn btn-primary"> Participate! </button>
+                </form>
+                <br>
+            <% } %>
+        </p>
+    </p>
+  </div>
+</body>
+</html>
